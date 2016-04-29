@@ -35,10 +35,11 @@ int calculate_result(int white_balls[5], int power_ball)
 	  return -1;
 	}
     }
-  if ((power_ball < 1) || (power_ball > MAX_POWER_BALL))
+  /*if ((power_ball < 1) || (power_ball > MAX_POWER_BALL))
     {
       return -1;
-    }
+    }*/
+    qsort(white_balls, 5, sizeof(int), my_sort_func);
   return 0;
 }
 
@@ -47,16 +48,16 @@ int main(int argc, char** argv)
   
     int balls[6];
     int count_balls = 0;
-    bool favorite = false;
+    int favourite = 0;
     
     for (int i=1; i<argc; i++)
-    {
+    {/*
     const char* arg = argv[i];
     if ('-' == arg[0])
     {
-    if (0 == strcmp(arg, "-favorite"))
+    if (0 == strcmp(arg, "-favourite"))
     {
-    favorite = 1;
+    favourite = 1;
     }
         else
         {
@@ -72,16 +73,17 @@ int main(int argc, char** argv)
           goto usage_error;
           }
           balls[count_balls++] = (int) val;
-        }
+        }*/
+        goto usage_error;
     }
   
-    if (6 != count_balls)
+    /*if (6 != count_balls)
     {
     goto usage_error;
-    }
+    }*/
       
     int power_ball = balls[5];
-    int result = calculate_result(white_balls, power_ball);
+    int result = calculate_result(balls, power_ball);
 
     if (result < 0)
       {
@@ -93,7 +95,7 @@ int main(int argc, char** argv)
 	result = result * 2; //Probabilidad doble
       }
     
-    if (favorite)
+    if (favourite)
       {
 	result = result * 2; //Probabilidad doble
       }
@@ -103,6 +105,6 @@ int main(int argc, char** argv)
     return 0;
                  
     usage_error:
-    fprintf(stderr, "Usage: %s [-favorite] (5 white balls) power_ball\n", argv[0]);
+    fprintf(stderr, "Usage: %s [-favourite] (5 white balls) power_ball\n", argv[0]);
     return -1;
 }
