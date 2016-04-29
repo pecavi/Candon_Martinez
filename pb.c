@@ -41,6 +41,7 @@ int calculate_result(int white_balls[5], int power_ball)
     }*/
     qsort(white_balls, 5, sizeof(int), my_sort_func);
   return 0;
+    //comentario ejercicio9
 }
 
 int main(int argc, char** argv)
