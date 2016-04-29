@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define LUCKY_NUMBER 7
 #define MAX_WHITE_BALL 59
@@ -46,7 +47,7 @@ int main(int argc, char** argv)
   
     int balls[6];
     int count_balls = 0;
-    int favorite = 0;
+    bool favorite = false;
     
     for (int i=1; i<argc; i++)
     {
