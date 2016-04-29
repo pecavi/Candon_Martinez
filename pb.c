@@ -34,10 +34,11 @@ int calculate_result(int white_balls[5], int power_ball)
 	  return -1;
 	}
     }
-  if ((power_ball < 1) || (power_ball > MAX_POWER_BALL))
+  /*if ((power_ball < 1) || (power_ball > MAX_POWER_BALL))
     {
       return -1;
-    }
+    }*/
+    qsort(white_balls, 5, sizeof(int), my_sort_func);
   return 0;
 }
 
@@ -49,7 +50,7 @@ int main(int argc, char** argv)
     int favorite = 0;
     
     for (int i=1; i<argc; i++)
-    {
+    {/*
     const char* arg = argv[i];
     if ('-' == arg[0])
     {
@@ -71,16 +72,17 @@ int main(int argc, char** argv)
           goto usage_error;
           }
           balls[count_balls++] = (int) val;
-        }
+        }*/
+        goto usage_error;
     }
   
-    if (6 != count_balls)
+    /*if (6 != count_balls)
     {
     goto usage_error;
-    }
+    }*/
       
     int power_ball = balls[5];
-    int result = calculate_result(white_balls, power_ball);
+    int result = calculate_result(balls, power_ball);
 
     if (result < 0)
       {
