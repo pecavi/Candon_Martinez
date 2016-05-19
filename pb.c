@@ -28,6 +28,10 @@ static int my_sort_func(const void* p1, const void* p2)
 
 int calculate_result(int white_balls[5], int power_ball)
 {
+  qsort(white_balls, 5, sizeof(int), my_sort_func);
+
+  printf("Your sorted numbers: \n");
+
   for (int i=0; i<5; i++)
     {
       if ((white_balls[i] < 1) || (white_balls[i] > MAX_WHITE_BALL))
@@ -39,8 +43,8 @@ int calculate_result(int white_balls[5], int power_ball)
     {
       return -1;
     }*/
-    qsort(white_balls, 5, sizeof(int), my_sort_func);
-  return 0;
+    printf("The power ball: %d \n", power_ball);
+    return 0;
     //comentario ejercicio9
 }
 
