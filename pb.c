@@ -4,8 +4,8 @@
 #include <stdbool.h>
 
 #define LUCKY_NUMBER 7
-#define MAX_WHITE_BALL 45
-#define MAX_POWER_BALL 28
+#define MAX_WHITE_BALL 59
+#define MAX_POWER_BALL 39
 
 void checkwhiteballs(int balls[5], int control){
   int last = balls[control];
@@ -46,6 +46,19 @@ static int my_sort_func(const void* p1, const void* p2)
  		return 0;
  	}
 }
+
+void lottery(){
+    int b[5]={0,0,0,0,0};
+    for(int i=0;i<5;i++)
+        b[i]=whiteballs_computer_generated();
+    for(int i=0;i<5;i++)
+        void checkwhiteballs(b,i);
+    
+    int pb=powerball_computer_generated();
+    
+    for(int i=0;i<5;i++)
+        printf("%d",b[i]);
+};
 
 int calculate_result(int white_balls[5], int power_ball)
 {
