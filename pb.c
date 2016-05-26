@@ -4,8 +4,8 @@
 #include <stdbool.h>
 
 #define LUCKY_NUMBER 7
-#define MAX_WHITE_BALL 59
-#define MAX_POWER_BALL 39
+#define MAX_WHITE_BALL 45
+#define MAX_POWER_BALL 28
 
 static int my_sort_func(const void* p1, const void* p2)
 {
@@ -42,6 +42,14 @@ int calculate_result(int white_balls[5], int power_ball)
     qsort(white_balls, 5, sizeof(int), my_sort_func);
   return 0;
     //comentario ejercicio9
+}
+
+void showing_results(int white_balls[5],int power_ball){
+	printf("Your sorted numbers: \n");
+	for (int i = 0; i < 5; i++){
+		printf("%d ", white_balls[i]);
+	}
+	printf("The power ball: %d\n", power_ball);
 }
 
 int main(int argc, char** argv)
@@ -105,8 +113,7 @@ int main(int argc, char** argv)
 
     return 0;
                  
-    usage_error:
-    fprintf(stderr, "Usage: %s [-favourite] (5 white balls) power_ball\n", argv[0]);
+    usage_error: fprintf(stderr, "Usage: %s [-favourite] (5 white balls) power_ball\n", argv[0]);
     return -1;
 }
 
