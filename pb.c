@@ -44,6 +44,14 @@ int calculate_result(int white_balls[5], int power_ball)
     //comentario ejercicio9
 }
 
+void showing_results(int white_balls[5],int power_ball){
+	printf("Your sorted numbers: \n");
+	for (int i = 0; i < 5; i++){
+		printf("%d ", white_balls[i]);
+	}
+	printf("The power ball: %d\n", power_ball);
+}
+
 int main(int argc, char** argv)
 {
   
