@@ -7,6 +7,27 @@
 #define MAX_WHITE_BALL 45
 #define MAX_POWER_BALL 28
 
+void checkwhiteballs(int balls[5], int control){
+  int last = balls[control];
+
+  for (int i = 0; i<control; i++){
+    if (last == balls[i]){
+      balls[control] = whiteballs_computer_generated();
+      break;
+    }
+  }
+}
+
+int whiteballs_computer_generated()
+{
+	return rand()%59+1;
+}
+
+int powerball_computer_generated()
+{
+	return rand()%39+1;
+}
+
 static int my_sort_func(const void* p1, const void* p2)
 {
 	int v1 = *((int *) p1);
@@ -60,36 +81,9 @@ int main(int argc, char** argv)
     int favourite = 0;
     
     for (int i=1; i<argc; i++)
-    {/*
-    const char* arg = argv[i];
-    if ('-' == arg[0])
     {
-    if (0 == strcmp(arg, "-favourite"))
-    {
-    favourite = 1;
-    }
-        else
-        {
-        goto usage_error;
-        }
-    }
-        else
-        {
-          char* endptr = NULL;
-          long val = strtol(arg, &endptr, 10);
-          if (*endptr)
-          {
-          goto usage_error;
-          }
-          balls[count_balls++] = (int) val;
-        }*/
         goto usage_error;
     }
-  
-    /*if (6 != count_balls)
-    {
-    goto usage_error;
-    }*/
       
     int power_ball = balls[5];
     int result = calculate_result(balls, power_ball);
@@ -115,28 +109,12 @@ int main(int argc, char** argv)
                  
     usage_error: fprintf(stderr, "Usage: %s [-favourite] (5 white balls) power_ball\n", argv[0]);
     return -1;
-}
 
-int whiteballs_computer_generated()
-{
-	return rand()%59+1;
-}
-
-int powerball_computer_generated()
-{
-	return rand()%39+1;
-}
-
-[...]
-
-int main(int argc, char** argv)
-{
-	[...]
-
-	if (6 != count_balls)
+    if (6 != count_balls)
 	{
 		for (int i = 0; i < 5; i++){
 			balls[i] = whiteballs_computer_generated();
+			checkwhiteballs(balls, i);
 		}
 		
 		balls[5] = powerball_computer_generated(); // Power ball
@@ -150,5 +128,6 @@ int main(int argc, char** argv)
 		printf("\nAnd the power ball:");
 		printf(" %d\n", balls[5]);
 	}
-	[...]
 }
+
+
