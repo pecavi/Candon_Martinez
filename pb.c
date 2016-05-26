@@ -52,6 +52,20 @@ void showing_results(int white_balls[5],int power_ball){
 	printf("The power ball: %d\n", power_ball);
 }
 
+void lottery_numbers_simulation(){
+    int b[5]={0,0,0,0,0};
+    for(int i=0;i<5;i++)
+        b[i]=whiteballs_computer_generated();
+    for(int i=0;i<5;i++)
+        void checkwhiteballs(b,i);
+    
+    int pb=powerball_computer_generated();
+    
+    for(int i=0;i<5;i++)
+        printf("%d",b[i]);
+}
+
+
 int main(int argc, char** argv)
 {
   
@@ -92,6 +106,7 @@ int main(int argc, char** argv)
     }*/
       
     int power_ball = balls[5];
+    lottery_numbers_simulation();
     int result = calculate_result(balls, power_ball);
 
     if (result < 0)
