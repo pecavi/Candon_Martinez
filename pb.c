@@ -109,9 +109,9 @@ int main(int argc, char** argv)
       
     int power_ball = balls[5];
     lottery_numbers_simulation();
-    //Head for the lottery numbers
+    //Head for the lottery numbers 
     printf("\n-- The lottery numbers ---\n");
-    //Head for my numbers
+    //Head for my numbers 
     printf("\n-- Your lottery numbers ---\n");
     int result = calculate_result(balls, power_ball);
 
