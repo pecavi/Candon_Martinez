@@ -62,22 +62,17 @@ void lottery(){
 
 int calculate_result(int white_balls[5], int power_ball)
 {
-  for (int i=0; i<5; i++)
-    {
-      if ((white_balls[i] < 1) || (white_balls[i] > MAX_WHITE_BALL))
-	{
-	  return -1;
-	}
+  // Percent white balls 
+  for (int i=0; i<5; i++){
+    for (int i = 0; i<5; i++){
+	if (white_balls[i] == lott[j])
     }
-  /*if ((power_ball < 1) || (power_ball > MAX_POWER_BALL))
-    {
-      return -1;
-    }*/
-    qsort(white_balls, 5, sizeof(int), my_sort_func);
-  return 0;
-    //comentario ejercicio9
-}
+  }
 
+  // Percent power ball 
+  if(power_ball == lott[5])
+  	result += 0.1;
+}
 void showing_results(int white_balls[5],int power_ball){
 	printf("Your sorted numbers: \n");
 	for (int i = 0; i < 5; i++){
@@ -114,6 +109,10 @@ int main(int argc, char** argv)
       
     int power_ball = balls[5];
     lottery_numbers_simulation();
+    //Head for the lottery numbers
+    printf("\n-- The lottery numbers ---\n");
+    //Head for my numbers
+    printf("\n-- Your lottery numbers ---\n");
     int result = calculate_result(balls, power_ball);
 
     if (result < 0)
