@@ -52,7 +52,7 @@ void lottery(){
     for(int i=0;i<5;i++)
         b[i]=whiteballs_computer_generated();
     for(int i=0;i<5;i++)
-        void checkwhiteballs(b,i);
+        checkwhiteballs(b,i);
     
     int pb=powerball_computer_generated();
     
@@ -82,12 +82,13 @@ int calculate_result(int white_balls[5], int power_ball)
     //comentario ejercicio9
 }
 
-void showing_results(int white_balls[5],int power_ball){
-	printf("Your sorted numbers: \n");
-	for (int i = 0; i < 5; i++){
-		printf("%d ", white_balls[i]);
-	}
-	printf("The power ball: %d\n", power_ball);
+void showing_results(int white_balls[5], int power_ball)
+{
+printf("The numbers of the white balls sorted: \n");
+for (int i = 0; i < 5; i++){
+printf("%d ", white_balls[i]);
+}
+printf("The power ball: %d \n", power_ball);
 }
 
 void lottery_numbers_simulation(){
@@ -95,7 +96,7 @@ void lottery_numbers_simulation(){
     for(int i=0;i<5;i++)
         b[i]=whiteballs_computer_generated();
     for(int i=0;i<5;i++)
-        void checkwhiteballs(b,i);
+        checkwhiteballs(b,i);
     
     int pb=powerball_computer_generated();
     
@@ -135,9 +136,15 @@ int main(int argc, char** argv)
 	result = result * 2; //Probabilidad doble
       }
 
-    printf("%d percent chance of winning\n", result);
+    /*printf("%d percent chance of winning\n", result);
 
-    return 0;
+    return 0;*/
+
+	printf("\n---The lottery numbers ---\n");
+	lottery_numbers_simulation();
+	printf("%d percent chance of winning\n", result);
+	
+	return 0;
                  
     usage_error: fprintf(stderr, "Usage: %s [-favourite] (5 white balls) power_ball\n", argv[0]);
     return -1;
